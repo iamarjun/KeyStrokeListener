@@ -17,11 +17,14 @@
             </intent-filter>
         </activity>
         <service android:name=".KeyStrokeListener"
-                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-        </service>
+                  android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+        <intent-filter>
+            <action android:name="android.accessibilityservice.AccessibilityService" />
+        </intent-filter>
+        <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service" />
+    </service>
     </application>
 
 </manifest>
